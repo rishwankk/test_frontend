@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 // Event data
 const events = [
@@ -22,7 +22,7 @@ const events = [
 ];
 
 // Event card component
-const EventCard = ({ title, subtitle, description }) => {
+const EventCard = ({ title, subtitle, description }:any) => {
   const imageUrl = 'https://s3-alpha-sig.figma.com/img/0f08/05c2/28db96474fe09fe1b6444c1b4ff70a86?Expires=1732492800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UK670VPebfY4YG5cOm9O-a9unhPzeZ4PS911hSxs81oSgVO6kty4ogkIcRzbsbTsDAuFXE50n3VoZ0CB0UpOzX9RLjvtPvmc-~QT7FGPmfDKn1RWBjhftTMHdqq1r3QPi0du~6tuOPpC2k1cYS37MNXSvaIE~QHzHMZaTUHgFyd9c4rrZoZ3BO2-pt62DqNBU2VoWcGlXJVUzg6n8n2O28pVygHFMJkE66xp6gtV1fD1toystzA28YM13u0OS5ok66qrIN0enXV7lwiT1eM7xHQ6ojTMtbjC1P7TK5TzSRL5Zqp6-a7m5xCobGNNfOQ3gyibvFsOOkdB9xgprXMlXQ__';
 
   return (

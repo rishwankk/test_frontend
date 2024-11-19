@@ -37,7 +37,7 @@ const Upload: React.FC = () => {
   try {
     const token = localStorage.getItem('token');
    
-    const response = await axios.post('http://127.0.0.1:3000/api/upload', formData, {
+    const response = await axios.post('https://test-backend-av0e.onrender.com/api/upload', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
         Authorization: `Bearer ${token}`,

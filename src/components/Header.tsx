@@ -8,9 +8,11 @@ import axios from "axios";
 type HeaderProps = {
   logo: string;
   links?: { to: string; text: string }[]; // Links for navigation
-  isAuthenticated: boolean;
+  isAuthenticated?: boolean;
   onLogout: () => void; // Logout handler
-  bgcolor: string; // Background color for the header
+  bgcolor?: string; // Background color for the header
+  userImage?:string,
+  userName?:string
 };
 
 const Header: React.FC<HeaderProps> = ({
@@ -38,7 +40,7 @@ const Header: React.FC<HeaderProps> = ({
       }
 
       try {
-        const response = await axios.get("http://127.0.0.1:3000/api/user", {
+        const response = await axios.get("https://test-backend-av0e.onrender.com/api/user", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -116,7 +118,7 @@ const Header: React.FC<HeaderProps> = ({
               {/* User Image */}
               {userImage ? (
                 <img
-                  src={`http://127.0.0.1:3000/images/${userImage}`  }
+                  src={`https://test-backend-av0e.onrender.com/images/${userImage}`  }
                   alt="User"
                   className="rounded-full w-6 h-6 xs:w-7 xs:h-8 sm:w-8 sm:h-8 sm:-ml-3 md:w-8 md:h-8 object-cover border-2 border-white lg:-ml-4 lg:h-10 lg:w-10 xs:-ml-2 md:-ml-4"
                 />

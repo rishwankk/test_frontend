@@ -1,10 +1,12 @@
 import React from 'react';
 
 interface ButtonProps {
-  onClick?: () => void;
   className?: string;
-  label?: any;
+  label?: string | JSX.Element;
+  onClick ?: () => void;
+  disabled?: boolean; // Add this line
 }
+
 
 const Button: React.FC<ButtonProps> = ({ onClick, className, label = 'Click Me' }) => {
   return (

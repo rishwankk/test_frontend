@@ -1,20 +1,22 @@
-import React from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from './Button';
 import axios from 'axios';
 
-const Signup = () => {
-  const [name, setName] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [photo, setPhoto] = React.useState(null);
+const Signup: React.FC = () => {
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [photo, setPhoto] = useState<File | null>(null);
+  const navigate = useNavigate();
 
   // Handle file upload
-  const handlePhotoChange = (e:any) => {
-    setPhoto(e.target.files[0]);
+  const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    setPhoto(file || null);
   };
 
-  const handleSubmit = async (e:any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // Create form data to handle file uploads
@@ -27,18 +29,20 @@ const Signup = () => {
     }
 
     try {
-      const response = await axios.post('http://127.0.0.1:3000/api/signup', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+      const response = await axios.post(
+        'https://test-backend-av0e.onrender.com/api/signup',
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        }
+      );
 
       if (response.status === 200) {
-        // Handle success (e.g., show a success message, redirect, etc.)
         console.log('User created:', response.data);
-        Navigate('/login')
+        navigate('/login');
       } else {
-        // Handle error (e.g., show an error message)
         console.log('Error:', response.data.message);
       }
     } catch (error) {
@@ -55,6 +59,7 @@ const Signup = () => {
             type="text"
             placeholder="Full Name"
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#C08C5F]"
+            value={name}
             onChange={(e) => setName(e.target.value)}
             required
           />
@@ -62,39 +67,37 @@ const Signup = () => {
             type="email"
             placeholder="Email"
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#C08C5F]"
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          
-          {/* Profile Photo Upload */}
+
           <input
             type="file"
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#C08C5F]"
             onChange={handlePhotoChange}
           />
-          
+
           <input
             type="password"
             placeholder="Password"
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#C08C5F]"
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          
+
           <Button
             className="w-full bg-[#C08C5D] text-white py-2 rounded-md hover:bg-[#C08C5F] transition duration-300"
-            label={
-              <span className="flex items-center justify-center space-x-2">
-                <span className="text-sm">Sign Up</span>
-              </span>
-            }
-            onClick={handleSubmit} // Use type="submit" instead of onClick to handle form submission properly
+            label="Sign Up"
           />
         </form>
 
         <div className="text-center text-sm text-gray-500">
           Already have an account?{' '}
-          <Link to="/login" className="text-black">Login</Link>
+          <Link to="/login" className="text-black">
+            Login
+          </Link>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Header from './Header';
 import logo from '../assets/logo2.png'; // Assuming logo is located here
 import Upload from './Upload';

@@ -13,7 +13,7 @@ const Login = () => {
         console.log('Password:', password);
         try {
 
-            const response =  await axios.post('http://127.0.0.1:3000/api/login', { email, password });
+            const response =  await axios.post('https://test-backend-av0e.onrender.com/api/login', { email, password });
             console.log('User logged in successfully');
            if(response.status === 200){
             console.log('User logged in successfully');

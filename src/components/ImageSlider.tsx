@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import image1 from "../assets/scroll1.png";
 import image2 from "../assets/scroll1.png";

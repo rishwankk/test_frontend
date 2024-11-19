@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Link } from 'react-router-dom';
 import Logo from "../assets/Logo.png";
 import Button from './Button';
@@ -23,9 +23,8 @@ const Header = () => {
         <Link to="/gallery" className="text-white hover:text-[#CF796C]">
           Gallery
         </Link>
-        <Button className='bg-[#CF796C] text-white px-6 py-2 rounded-md ' >
-          Contact
-        </Button>
+        <Button className='bg-[#CF796C] text-white px-6 py-2 rounded-md ' label="contact" />
+        
       </div>
     </div>
   );

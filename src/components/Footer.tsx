@@ -1,4 +1,4 @@
-import React from 'react';
+
 import logo from '../assets/logo2.png'; // Adjust the path based on your project structure
 
 const Footer = () => {

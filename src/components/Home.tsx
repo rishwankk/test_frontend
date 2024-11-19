@@ -1,7 +1,6 @@
-import React from 'react';
+
 import FilmstripScroller from './ImageSlider';
 import About from './About';
-import PhotoGraphy from './PhotoGraphy';
 import Header from './Header';
 import logo from '../assets/Logo.png';
 import GalleryComponent from './GalleryComponent';

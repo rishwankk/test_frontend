@@ -1,4 +1,4 @@
-import React from 'react';
+
 import image from "../assets/present.png"
 // Sample data for the gallery (replace with your actual image URLs)
 const galleryImages = [

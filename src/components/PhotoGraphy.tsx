@@ -1,4 +1,4 @@
-import React from 'react';
+
 import photography from '../assets/photography.png';
 
 const Photography = () => {
